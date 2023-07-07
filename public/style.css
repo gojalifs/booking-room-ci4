@@ -1,0 +1,6 @@
+.icon-background {
+    display: inline-block;
+    background-color: #fff; /* Replace with your desired background color */
+    padding: 5px; /* Adjust padding as needed */
+    border-radius: 50%; /* Add rounded corners if desired */
+}
