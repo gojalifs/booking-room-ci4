@@ -3,10 +3,8 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="null"><i class="fa fa-bars"><span
-                        class="material-symbols-outlined">
-                        menu
-                    </span></i></a>
+            <a class="nav-link" data-widget="pushmenu" href="null"><i class="fa fa-bars">
+                </i></a>
         </li>
     </ul>
 
