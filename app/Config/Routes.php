@@ -41,6 +41,8 @@ $routes->group('admin', ['filter' => 'admin_auth'], static function ($routes) {
     $routes->delete('users/delete/(:any)', 'Admin\ManageUsersController::delete/$1');
     $routes->get('bookings', 'Admin\ManageBookingsController::index');
     $routes->get('profile', 'Admin\ProfileController::index');
+    $routes->post('profile/update', 'Admin\ProfileController::updateProfile');
+    $routes->post('profile/changepassword', 'Admin\ProfileController::changePassword');
     $routes->get('rooms', 'Admin\ManageRoomsController::index');
     $routes->post('add-room', 'Admin\ManageRoomsController::store');
     $routes->post('rooms/update/(:any)', 'Admin\ManageRoomsController::update/$1');
