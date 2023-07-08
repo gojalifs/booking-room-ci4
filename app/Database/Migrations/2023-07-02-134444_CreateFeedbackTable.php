@@ -22,12 +22,18 @@ class CreateFeedbackTable extends Migration
             'user' => [
                 'type' => 'INT',
                 'constraint' => 11,
-                'unsigned' => true
+                'unsigned' => true,
+            ],
+            'ruang' => [
+                'type' => 'INT',
+                'constraint' => '11',
+                'unsigned' => true,
             ]
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->createTable('feedback');
         $this->db->query('ALTER TABLE `feedback` ADD CONSTRAINT `fk_user_feddback_id` FOREIGN KEY (`user`) REFERENCES `pengguna`(`id`) ON DELETE CASCADE ON UPDATE CASCADE');
+        $this->db->query('ALTER TABLE `feedback` ADD CONSTRAINT `fk_room_feddback_id` FOREIGN KEY (`ruang`) REFERENCES `ruangan`(`id`) ON DELETE CASCADE ON UPDATE CASCADE');
     }
 
     public function down()
