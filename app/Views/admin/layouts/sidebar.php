@@ -25,22 +25,34 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-                <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+                <!-- Add icons to the links using the .nav-icon class with Font Awesome -->
                 <li class="nav-item" id="manage-users">
-                    <a href="users" class="nav-link ">Kelola User</a>
+                    <a href="users" class="nav-link ">
+                        <i class="nav-icon fas fa-users"></i> <!-- User icon -->
+                        <span class="text-sm">Kelola User</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="rooms" class="nav-link ">Kelola Ruang</a>
+                    <a href="rooms" class="nav-link ">
+                        <i class="nav-icon fas fa-door-open"></i> <!-- Room icon -->
+                        <span class="text-sm">Kelola Ruang</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="bookings" class="nav-link ">Data Peminjaman</a>
+                    <a href="bookings" class="nav-link ">
+                        <i class="nav-icon fas fa-calendar-check"></i> <!-- Booking icon -->
+                        <span class="text-sm">Data Peminjaman</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="feedbacks" class="nav-link ">Data Feedback</a>
+                    <a href="feedbacks" class="nav-link ">
+                        <i class="nav-icon fas fa-comment-alt"></i> <!-- Feedback icon -->
+                        <span class="text-sm">Data Feedback</span>
+                    </a>
                 </li>
             </ul>
         </nav>
+
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
