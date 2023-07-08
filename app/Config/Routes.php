@@ -29,13 +29,23 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', '\user\AuthController::index');
+$routes->get('/', 'User\DashboardController::index', ['filter' => 'user_auth']);
+$routes->get('login', 'User\UserAuthController::login');
+$routes->post('login', 'User\UserAuthController::login');
+$routes->get('register', 'User\UserAuthController::register');
+$routes->post('register', 'User\UserAuthController::register');
+$routes->group('user', ['filter' => 'user_auth'], static function ($routes) {
+    $routes->get('dashboard', 'User\DashboardController::index');
+});
+
+/* 
+    Admin Section
+ */
 $routes->get('admin/login', 'Admin\AuthController::login');
 $routes->post('admin/login', 'Admin\AuthController::login');
 $routes->get('admin/register', 'Admin\AuthController::register');
 $routes->post('admin/register', 'Admin\AuthController::register');
 $routes->group('admin', ['filter' => 'admin_auth'], static function ($routes) {
-    $routes->get('/', 'Admin\DashboardController::index');
     $routes->get('dashboard', 'Admin\DashboardController::index');
     $routes->get('users', 'Admin\ManageUsersController::index');
     $routes->delete('users/delete/(:any)', 'Admin\ManageUsersController::delete/$1');
@@ -49,6 +59,7 @@ $routes->group('admin', ['filter' => 'admin_auth'], static function ($routes) {
     $routes->get('feedbacks', 'Admin\ManageFeedbacksController::index');
     $routes->get('logout', 'Admin\AuthController::logout');
 });
+
 
 /*
  * --------------------------------------------------------------------

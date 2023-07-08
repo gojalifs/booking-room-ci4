@@ -1,6 +1,37 @@
 .icon-background {
     display: inline-block;
-    background-color: #fff; /* Replace with your desired background color */
-    padding: 5px; /* Adjust padding as needed */
-    border-radius: 50%; /* Add rounded corners if desired */
+    background-color: #fff;
+    /* Replace with your desired background color */
+    padding: 5px;
+    /* Adjust padding as needed */
+    border-radius: 50%;
+    /* Add rounded corners if desired */
+}
+
+.or-divider-text {
+    margin: 0 10px;
+    color: #999;
+    font-weight: bold;
+}
+
+
+.login-card {
+    margin-left: calc((100vw - 90vw) / 2);
+    position: relative;
+    left: 300px;
+    top: 100px;
+}
+
+.custom-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.login-text{
+    position: relative;
+    top: 500px;
+    left: 100px;
 }
