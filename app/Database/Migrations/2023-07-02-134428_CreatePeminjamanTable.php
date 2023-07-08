@@ -56,7 +56,7 @@ class CreatePeminjamanTable extends Migration
 
         $this->db->query("ALTER TABLE `peminjaman` ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user`) REFERENCES `pengguna`(`id`) ON DELETE CASCADE ON UPDATE CASCADE");
         $this->db->query("ALTER TABLE `peminjaman` ADD CONSTRAINT `fk_admin_id` FOREIGN KEY (`admin`) REFERENCES `admin`(`id`) ON DELETE CASCADE ON UPDATE CASCADE");
-        $this->db->query("ALTER TABLE `peminjaman` ADD CONSTRAINT `fk_pinjam_id` FOREIGN KEY (`kode_ruang`) REFERENCES `ruangan`(`kode_ruang`) ON DELETE CASCADE ON UPDATE CASCADE");
+        $this->db->query("ALTER TABLE `peminjaman` ADD CONSTRAINT `fk_pinjam_id` FOREIGN KEY (`kode_ruang`) REFERENCES `ruangan`(`id`) ON DELETE CASCADE ON UPDATE CASCADE");
     }
 
     public function down()
