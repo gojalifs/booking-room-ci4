@@ -19,10 +19,10 @@
         </div>
         <div class="row justify-content-center mt-5 relative" style="position: relative; left: 60vw; width: 30vw;">
             <div class="card text-center col-md-6" style="width: 40rem;">
-                <h5 class="card-header">Booking Ruangan</h5>
+                <h5 class="card-header">Pinjam Ruangan</h5>
                 <div class="card-body">
 
-                    <form action="<?= base_url('user/process-booking') ?>" method="POST">
+                    <form id="book-form">
                         <div class="row mb-3">
                             <label for="nama_lengkap" class="col-sm-4 col-form-label">Nama Lengkap:</label>
                             <div class="col-sm-8">
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <!-- Add form elements for booking a room here -->
-                        <button type="submit" class="btn btn-primary">BOOKING</button>
+                        <button type="submit" id="submit-button" class="btn btn-primary">PINJAM SEKARANG</button>
                     </form>
                 </div>
             </div>
@@ -88,6 +88,7 @@
     </div>
     <!-- /.content -->
 
+    <!-- build the navbar -->
     <script>
         // Get the current page URL
         var currentUrl = window.location.href;
@@ -100,6 +101,33 @@
             if (link.href === currentUrl) {
                 link.classList.add('active'); // Add the 'active' class to the matching link
             }
+        });
+    </script>
+
+    <!-- submit form -->
+    <script>
+        $(document).ready(function () {
+            $('#book-form').submit(function (e) {
+                e.preventDefault();
+                data = $(this).serialize();
+                console.log(data);
+                $.ajax({
+                    url: 'process-booking', // Replace with the actual URL to your PHP controller
+                    type: 'POSt',
+                    data: data,
+                    success: function (response) {
+                        // Handle the response data
+                        console.log(response);
+
+                        alert(response.message);
+                        document.getElementById('book-form').reset();
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle the error if any
+                        console.log(error);
+                    }
+                })
+            });
         });
     </script>
 </body>

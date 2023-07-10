@@ -7,6 +7,13 @@ use App\Models\PeminjamanModel;
 
 class BookingController extends BaseController
 {
+    public function index()
+    {
+        $bookingModel = new PeminjamanModel();
+        $bookings = $bookingModel->findAll();
+        return view('user/daftar_peminjaman', $bookings);
+
+    }
     public function book()
     {
         $request = $this->request;
@@ -29,7 +36,7 @@ class BookingController extends BaseController
         ]);
 
         if (!$validation) {
-            return $this->response->setJSON(['is_valid' => false, 'message' => 'Validasi Error']);
+            return $this->response->setJSON(['is_valid' => false, 'message' => $name]);
         }
 
         $bookModel = new PeminjamanModel();
@@ -46,8 +53,11 @@ class BookingController extends BaseController
             ];
 
         $bookModel->insert($data);
-        $JSONresponse = ['success' => true, 'message' => 'Room Added'];
-        return view('user/daftar_peminjaman', ['JSONresponse' => $JSONresponse]);
+        $JSONresponse = ['success' => true, 'message' => 'Booking Success'];
+        $jsonData = json_encode($JSONresponse);
+        return $this->response->setJSON(['success' => true, 'message' => 'Booking Success']);
+        return $JSONresponse;
+
 
     }
 }
