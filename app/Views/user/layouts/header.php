@@ -20,9 +20,10 @@
         <li class="nav-item">
           <a class="nav-link" href="bookings"><h5>Peminjaman Saya</h5></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mr-3"> <!-- Added mr-3 class for margin -->
           <a class="nav-link" href="profile"><h5>Profil</h5></a>
         </li>
+        <div style="width: 2em"></div>
         <li class="nav-item">
           <a class="btn btn-warning" href="logout">
             <span class="navbar-text text-black">

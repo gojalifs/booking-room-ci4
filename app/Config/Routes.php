@@ -39,6 +39,7 @@ $routes->group('user', ['filter' => 'user_auth'], static function ($routes) {
     $routes->get('rooms', 'User\RoomsController::index');
     $routes->get('bookings', 'User\BookingController::index');
     $routes->post('process-booking', 'User\BookingController::book');
+    $routes->post('cancel-booking', 'User\BookingController::cancel');
 });
 
 /* 

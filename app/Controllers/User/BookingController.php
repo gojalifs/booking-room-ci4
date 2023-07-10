@@ -10,8 +10,9 @@ class BookingController extends BaseController
     public function index()
     {
         $bookingModel = new PeminjamanModel();
-        $bookings = $bookingModel->findAll();
-        return view('user/daftar_peminjaman', $bookings);
+        $user = session()->get('user_id');
+        $bookings = $bookingModel->where('user', $user)->orderBy('waktu_pengajuan', 'ASC')->findAll();
+        return view('user/daftar_peminjaman', ['bookings' => $bookings]);
 
     }
     public function book()
@@ -53,6 +54,15 @@ class BookingController extends BaseController
             ];
 
         $bookModel->insert($data);
-        return $this->response->setJSON(['success' => true, 'message' => 'Booking Success']);
+        return redirect()->to(base_url('user/booking'));
+    }
+
+    public function cancel()
+    {
+        $request = $this->request;
+        $bookId = $request->getPost('id');
+        $bookModel = new PeminjamanModel();
+        $bookModel->update($bookId, ['status' => 'cancel']);
+        return $this->response->setJSON(['success' => true, 'message' => 'Peminjaman telah dibatalkan']);
     }
 }
