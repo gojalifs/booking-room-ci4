@@ -26,7 +26,7 @@
                         <div class="row mb-3">
                             <label for="nama_lengkap" class="col-sm-4 col-form-label">Nama Lengkap:</label>
                             <div class="col-sm-8">
-                            <input value="<?= session('user_id') ?>" type="text" id="nama_lengkap" name="user_id"
+                                <input value="<?= session('user_id') ?>" type="text" id="nama_lengkap" name="user_id"
                                     class="form-control" hidden>
                                 <input value="<?= session('user_name') ?>" type="text" id="nama_lengkap" name="name"
                                     class="form-control" required disabled>
@@ -84,9 +84,9 @@
                     </div>
                 </div>
             </section>
-            <!-- /.content -->
         </div>
     </div>
+    <!-- /.content -->
 
     <script>
         // Get the current page URL
