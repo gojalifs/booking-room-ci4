@@ -18,7 +18,7 @@ class ProfileController extends BaseController
     public function index()
     {
         $id = session()->get('user_id');
-        $data = $this->adminModel->where('id', 1)->first();
+        $data = $this->adminModel->where('id', $id)->first();
         return view('admin/profil', ['user' => $data]);
     }
 
