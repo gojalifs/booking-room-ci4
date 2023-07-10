@@ -53,11 +53,6 @@ class BookingController extends BaseController
             ];
 
         $bookModel->insert($data);
-        $JSONresponse = ['success' => true, 'message' => 'Booking Success'];
-        $jsonData = json_encode($JSONresponse);
         return $this->response->setJSON(['success' => true, 'message' => 'Booking Success']);
-        return $JSONresponse;
-
-
     }
 }
