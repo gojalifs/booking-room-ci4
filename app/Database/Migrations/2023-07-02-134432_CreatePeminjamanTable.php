@@ -8,6 +8,8 @@ class CreatePeminjamanTable extends Migration
 {
     public function up()
     {
+        $this->forge->dropTable('peminjaman');
+
         $this->forge->addField([
             'kode_pinjam' => [
                 'type' => 'INT',
@@ -20,13 +22,10 @@ class CreatePeminjamanTable extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
-            'nama_kegiatan' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ],
-            'status' => [
-                'type' => 'VARCHAR',
-                'constraint' => '50',
+            'user' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true
             ],
             'waktu_pengajuan' => [
                 'type' => 'TIMESTAMP',
@@ -40,15 +39,20 @@ class CreatePeminjamanTable extends Migration
             'waktu_selesai' => [
                 'type' => 'TIME',
             ],
-            'user' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true
+            'keterangan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '100',
+            ],
+            'status' => [
+                'type' => 'VARCHAR',
+                'constraint' => '50',
+                'default' => 'Pending',
             ],
             'admin' => [
                 'type' => 'INT',
                 'constraint' => 11,
-                'unsigned' => true
+                'unsigned' => true,
+                'null' => true,
             ],
         ]);
         $this->forge->addPrimaryKey('kode_pinjam');

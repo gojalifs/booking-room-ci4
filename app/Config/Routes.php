@@ -36,6 +36,8 @@ $routes->get('register', 'User\UserAuthController::register');
 $routes->post('register', 'User\UserAuthController::register');
 $routes->group('user', ['filter' => 'user_auth'], static function ($routes) {
     $routes->get('dashboard', 'User\DashboardController::index');
+    $routes->get('rooms', 'User\RoomsController::index');
+    $routes->post('process-booking', 'User\BookingController::book');
 });
 
 /* 
