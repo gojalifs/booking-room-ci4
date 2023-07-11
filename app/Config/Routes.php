@@ -40,6 +40,12 @@ $routes->group('user', ['filter' => 'user_auth'], static function ($routes) {
     $routes->get('bookings', 'User\BookingController::index');
     $routes->post('process-booking', 'User\BookingController::book');
     $routes->post('cancel-booking', 'User\BookingController::cancel');
+    $routes->group('profile', static function ($routes) {
+        $routes->get('/', 'User\ProfileController::index');
+        $routes->post('update', 'User\ProfileController::updateProfile');
+        $routes->post('changepassword', 'User\ProfileController::changePassword');
+    });
+    $routes->get('logout', 'User\AuthController::logout');
 });
 
 /* 
