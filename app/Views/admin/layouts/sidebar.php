@@ -44,12 +44,6 @@
                         <span class="text-sm">Data Peminjaman</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="feedbacks" class="nav-link ">
-                        <i class="nav-icon fas fa-comment-alt"></i> <!-- Feedback icon -->
-                        <span class="text-sm">Data Feedback</span>
-                    </a>
-                </li>
             </ul>
         </nav>
 

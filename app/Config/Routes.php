@@ -67,7 +67,6 @@ $routes->group('admin', ['filter' => 'admin_auth'], static function ($routes) {
     $routes->get('rooms', 'Admin\ManageRoomsController::index');
     $routes->post('add-room', 'Admin\ManageRoomsController::store');
     $routes->post('rooms/update/(:any)', 'Admin\ManageRoomsController::update/$1');
-    $routes->get('feedbacks', 'Admin\ManageFeedbacksController::index');
     $routes->get('logout', 'Admin\AuthController::logout');
 });
 
