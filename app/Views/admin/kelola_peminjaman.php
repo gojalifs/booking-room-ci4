@@ -64,10 +64,13 @@
                                 <?= $booking['status'] ?>
                             </td>
                             <td>
-                                <button class="btn btn-sm btn-success action-button"
+                                <button
+                                    class="btn btn-sm btn-success action-button<?= ($booking['status'] === 'cancel') ? ' disabled' : '' ?>"
                                     data-id="<?= $booking['kode_pinjam'] ?>" data-status="approve">Setujui</button>
-                                <button class="btn btn-sm btn-danger action-button" data-id="<?= $booking['kode_pinjam'] ?>"
-                                    data-status="deny">Tolak</button>
+                                <button
+                                    class="btn btn-sm btn-danger action-button<?= ($booking['status'] === 'cancel') ? ' disabled' : '' ?>"
+                                    data-id="<?= $booking['kode_pinjam'] ?>" data-status="deny">Tolak</button>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
