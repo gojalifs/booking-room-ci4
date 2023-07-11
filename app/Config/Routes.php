@@ -60,6 +60,7 @@ $routes->group('admin', ['filter' => 'admin_auth'], static function ($routes) {
     $routes->get('users', 'Admin\ManageUsersController::index');
     $routes->delete('users/delete/(:any)', 'Admin\ManageUsersController::delete/$1');
     $routes->get('bookings', 'Admin\ManageBookingsController::index');
+    $routes->post('update-booking', 'Admin\ManageBookingsController::update');
     $routes->get('profile', 'Admin\ProfileController::index');
     $routes->post('profile/update', 'Admin\ProfileController::updateProfile');
     $routes->post('profile/changepassword', 'Admin\ProfileController::changePassword');
